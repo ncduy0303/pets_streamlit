@@ -6,7 +6,7 @@ import time
 # App title
 st.title("PETS Classifier")
 
-def predict(img, display_img):
+def predict(img):
     st.image(img, use_column_width=True)
     with st.spinner('Wait for it...'): time.sleep(3)
 
