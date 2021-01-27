@@ -11,7 +11,7 @@ def predict(img):
 
     clas, clas_idx, probs = learn.predict(img)
     prob = round(torch.max(probs).item() * 100, 2)
-    st.success(f"This is {clas} with the proability of {prob}%.")
+    st.success(f"This is {clas} with proability of {prob}%.")
 
 option = st.radio('', ['Choose a test image', 'Choose your own image'])
 
