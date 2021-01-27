@@ -1,22 +1,17 @@
-from fastai.vision.all import load_learner, torch, PILImage, download_url
+from fastai.vision.all import load_learner, torch, PILImage
 import streamlit as st
 import os
 import time
 
-st.title("PETS Classifier")
-
-download_url('https://math-doodle-models.s3-ap-southeast-1.amazonaws.com/pets.pkl', './model.pkl')
+learn = load_learner('models/pets.pkl')
 
 def predict(img):
     st.image(img, use_column_width=True)
     with st.spinner('Wait for it...'): time.sleep(3)
 
-    learn = load_learner('model.pkl')
     clas, clas_idx, probs = learn.predict(img)
     prob = round(torch.max(probs).item() * 100, 2)
-    
     st.success(f"This is {clas} with the proability of {prob}%.")
-
 
 option = st.radio('', ['Choose a test image', 'Choose your own image'])
 
