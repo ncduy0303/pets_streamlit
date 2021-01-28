@@ -3,6 +3,9 @@ import streamlit as st
 import os
 import time
 
+st.set_page_config("PETS", "🐶&🐱")
+st.title("PETS 🐶&🐱")
+
 learn = load_learner('models/pets.pkl')
 
 def predict(img):
